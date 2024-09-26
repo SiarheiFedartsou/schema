@@ -47,6 +47,12 @@ module.exports.tests.analyze = function(test, common){
     // remove punctuation (handled by the char_filter)
     assertAnalysis( 'punctuation', punctuation.all.join(''), ['0:&', '0:and', '0:und'] );
     assertAnalysis( 'punctuation', 'Hawai‘i', ['hawaii'] );
+    // testing «»
+    assertAnalysis( 'punctuation - leading «', '«Respublika', ['respublika'] );
+    assertAnalysis( 'punctuation - trailing »', 'Respublika»', ['respublika'] );
+    assertAnalysis( 'punctuation - surrounding «»', '«Respublika»', ['respublika'] );
+    assertAnalysis( 'punctuation', 'Respub«lika', ['respublika'] );
+    assertAnalysis( 'no punctuation', 'Respublika', ['respublika'] );
 
     assertAnalysis( 'british_american_english', 'town theatre', ['0:town', '1:theatre', '1:theater'] );
     assertAnalysis( 'british_american_english', 'town theater', ['0:town', '1:theater', '1:theatre'] );
@@ -55,15 +61,7 @@ module.exports.tests.analyze = function(test, common){
     assertAnalysis( 'leading_zeros', '01000', ['0:1000'] );
     assertAnalysis( 'leading_zeros', '09999', ['0:9999'] );
 
-    // testing newly added blacklist characters
-    assertAnalysis( 'punctuation - leading «', '«Respublika', ['respublika'] );
-    assertAnalysis( 'punctuation - trailing »', 'Respublika»', ['respublika'] );
-    assertAnalysis( 'punctuation - surrounding «»', '«Respublika»', ['respublika'] );
-    // assertAnalysis( 'punctuation - in between words', 'Respu«blika', ['respu', 'blika'] );
-    // assertAnalysis( 'punctuation - multiple occurrences', '«Res«pub»lika»', ['res', 'pub', 'lika'] );
 
-    // Ensure that regular text without punctuation is unchanged
-    assertAnalysis( 'no punctuation', 'Respublika', ['respublika'] );
 
     suite.run( t.end );
   });
