@@ -151,7 +151,7 @@ function generate(){
             "lowercase",
             "trim",
             "icu_folding",
-            // "country_abbreviation_synonyms_multiplexer",
+            "country_abbreviation_synonyms_multiplexer",
             "unique_only_same_position",
             "notnull",
             "flatten_graph"
@@ -165,7 +165,7 @@ function generate(){
             "lowercase",
             "trim",
             "icu_folding",
-            // "country_abbreviation_synonyms_multiplexer",
+            "country_abbreviation_synonyms_multiplexer",
             "peliasOneEdgeGramFilter",
             "unique_only_same_position",
             "notnull",
@@ -209,13 +209,13 @@ function generate(){
         //     "synonyms/place_names"
         //   ]
         // },
-        // "country_abbreviation_synonyms_multiplexer": {
-        //   "type": "multiplexer",
-        //   "preserve_original": false,
-        //   "filters": [
-        //     "synonyms/country_codes"
-        //   ]
-        // },
+        "country_abbreviation_synonyms_multiplexer": {
+          "type": "multiplexer",
+          "preserve_original": false,
+          "filters": [
+            "synonyms/country_codes"
+          ]
+        },
         "notnull" :{
           "type" : "length",
           "min" : 1
