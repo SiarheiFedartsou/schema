@@ -52,7 +52,7 @@ function generate(){
             "synonyms/custom_name/multiword",
             "synonyms/custom_street/multiword",
             "synonyms/custom_admin/multiword",
-            "name_synonyms_multiplexer",
+            // "name_synonyms_multiplexer",
             "icu_folding",
             "remove_ordinals",
             "removeAllZeroNumericPrefix",
@@ -134,7 +134,7 @@ function generate(){
             "trim",
             "remove_duplicate_spaces",
             "synonyms/custom_street/multiword",
-            // "street_synonyms_multiplexer",
+            "street_synonyms_multiplexer",
             "icu_folding",
             "remove_ordinals",
             "trim",
@@ -174,32 +174,32 @@ function generate(){
         },
       },
       "filter" : {
-        // "street_synonyms_multiplexer": {
-        //   "type": "multiplexer",
-        //   "preserve_original": false,
-        //   "filters": [
-        //     "synonyms/custom_street",
-        //     "synonyms/personal_titles",
-        //     "synonyms/streets",
-        //     "synonyms/directionals",
-        //     "synonyms/british_american_english",
-        //   ]
-        // },
-        "name_synonyms_multiplexer": {
+        "street_synonyms_multiplexer": {
           "type": "multiplexer",
           "preserve_original": false,
           "filters": [
-            "synonyms/custom_name",
             "synonyms/custom_street",
-            "synonyms/custom_admin",
             "synonyms/personal_titles",
-            "synonyms/place_names",
             "synonyms/streets",
             "synonyms/directionals",
-            "synonyms/punctuation",
-            "synonyms/british_american_english"
+            "synonyms/british_american_english",
           ]
         },
+        // "name_synonyms_multiplexer": {
+        //   "type": "multiplexer",
+        //   "preserve_original": false,
+        //   "filters": [
+        //     "synonyms/custom_name",
+        //     "synonyms/custom_street",
+        //     "synonyms/custom_admin",
+        //     "synonyms/personal_titles",
+        //     "synonyms/place_names",
+        //     "synonyms/streets",
+        //     "synonyms/directionals",
+        //     "synonyms/punctuation",
+        //     "synonyms/british_american_english"
+        //   ]
+        // },
         "admin_synonyms_multiplexer": {
           "type": "multiplexer",
           "preserve_original": false,
