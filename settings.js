@@ -22,7 +22,9 @@ function generate(){
     "analysis": {
       "tokenizer": {
         "peliasTokenizer": {
-          "type": "icu_tokenizer"
+           "type": "pattern",
+          "pattern": "[\\s,/\\\\-]+"
+        //  "type": "icu_tokenizer"
         }
       },
       "analyzer": {
