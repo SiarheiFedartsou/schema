@@ -134,22 +134,23 @@ function generate(){
           "char_filter" : ["numeric"]
         },
         "peliasStreet": {
-          "type": "custom",
-          "tokenizer":"peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "remove_duplicate_spaces",
-            "synonyms/custom_street/multiword",
-            "street_synonyms_multiplexer",
-            "icu_folding",
-            "remove_ordinals",
-            "trim",
-            "unique_only_same_position",
-            "notnull",
-            "flatten_graph",
-          ]
+          "type": "icu_analyzer"
+          // "type": "custom",
+          // "tokenizer":"peliasTokenizer",
+          // "char_filter" : ["punctuation", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "remove_duplicate_spaces",
+          //   "synonyms/custom_street/multiword",
+          //   "street_synonyms_multiplexer",
+          //   "icu_folding",
+          //   "remove_ordinals",
+          //   "trim",
+          //   "unique_only_same_position",
+          //   "notnull",
+          //   "flatten_graph",
+          // ]
         },
         "peliasIndexCountryAbbreviation": {
           "type": "custom",
