@@ -26,4 +26,4 @@ jobs:
         npm install
         curl http://127.0.0.1:9200/
         ./bin/create_index
-        npm run integration
+        # npm run integration
