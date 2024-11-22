@@ -22,105 +22,111 @@ function generate(){
     "analysis": {
       "tokenizer": {
         "peliasTokenizer": {
-           "type": "pattern",
-          "pattern": "[\\s,/\\\\-]+"
-        //  "type": "icu_tokenizer"
+          //  "type": "pattern",
+          // "pattern": "[\\s,/\\\\-]+"
+          "type": "icu_tokenizer"
         }
       },
       "analyzer": {
         "peliasAdmin": {
-          "type": "custom",
-          "tokenizer": "peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "synonyms/custom_admin/multiword",
-            "admin_synonyms_multiplexer",
-            "icu_folding",
-            "word_delimiter",
-            "unique_only_same_position",
-            "notnull",
-            "flatten_graph"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer": "peliasTokenizer",
+          // "char_filter" : ["punctuation", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "synonyms/custom_admin/multiword",
+          //   "admin_synonyms_multiplexer",
+          //   "icu_folding",
+          //   "word_delimiter",
+          //   "unique_only_same_position",
+          //   "notnull",
+          //   "flatten_graph"
+          // ]
         },
         "peliasIndexOneEdgeGram" : {
-          "type": "custom",
-          "tokenizer" : "peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "synonyms/custom_name/multiword",
-            "synonyms/custom_street/multiword",
-            "synonyms/custom_admin/multiword",
-            "name_synonyms_multiplexer",
-            "icu_folding",
-            "remove_ordinals",
-            "removeAllZeroNumericPrefix",
-            "peliasOneEdgeGramFilter",
-            "unique_only_same_position",
-            "notnull",
-            "flatten_graph"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer" : "peliasTokenizer",
+          // "char_filter" : ["punctuation", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "synonyms/custom_name/multiword",
+          //   "synonyms/custom_street/multiword",
+          //   "synonyms/custom_admin/multiword",
+          //   "name_synonyms_multiplexer",
+          //   "icu_folding",
+          //   "remove_ordinals",
+          //   "removeAllZeroNumericPrefix",
+          //   "peliasOneEdgeGramFilter",
+          //   "unique_only_same_position",
+          //   "notnull",
+          //   "flatten_graph"
+          // ]
         },
         "peliasQuery": {
-          "type": "custom",
-          "tokenizer": "peliasTokenizer",
-          "char_filter": ["punctuation", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "icu_folding",
-            "remove_ordinals",
-            "removeAllZeroNumericPrefix",
-            "unique_only_same_position",
-            "notnull"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer": "peliasTokenizer",
+          // "char_filter": ["punctuation", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "icu_folding",
+          //   "remove_ordinals",
+          //   "removeAllZeroNumericPrefix",
+          //   "unique_only_same_position",
+          //   "notnull"
+          // ]
         },
         "peliasPhrase": {
-          "type": "custom",
-          "tokenizer":"peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "remove_duplicate_spaces",
-            "synonyms/custom_name/multiword",
-            "synonyms/custom_street/multiword",
-            "synonyms/custom_admin/multiword",
-            "name_synonyms_multiplexer",
-            "icu_folding",
-            "remove_ordinals",
-            "removeAllZeroNumericPrefix",
-            "unique_only_same_position",
-            "notnull",
-            "flatten_graph"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer":"peliasTokenizer",
+          // "char_filter" : ["punctuation", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "remove_duplicate_spaces",
+          //   "synonyms/custom_name/multiword",
+          //   "synonyms/custom_street/multiword",
+          //   "synonyms/custom_admin/multiword",
+          //   "name_synonyms_multiplexer",
+          //   "icu_folding",
+          //   "remove_ordinals",
+          //   "removeAllZeroNumericPrefix",
+          //   "unique_only_same_position",
+          //   "notnull",
+          //   "flatten_graph"
+          // ]
         },
         "peliasZip": {
-          "type": "custom",
-          "tokenizer":"keyword",
-          "char_filter": ["alphanumeric", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "icu_folding",
-            "unique_only_same_position",
-            "notnull"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer":"keyword",
+          // "char_filter": ["alphanumeric", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "icu_folding",
+          //   "unique_only_same_position",
+          //   "notnull"
+          // ]
         },
         "peliasUnit": {
-          "type": "custom",
-          "tokenizer":"keyword",
-          "char_filter": ["alphanumeric", "nfkc_normalizer"],
-          "filter": [
-            "lowercase",
-            "trim",
-            "icu_folding",
-            "unique_only_same_position",
-            "notnull"
-          ]
+          "type": "icu_analyzer",
+          // "type": "custom",
+          // "tokenizer":"keyword",
+          // "char_filter": ["alphanumeric", "nfkc_normalizer"],
+          // "filter": [
+          //   "lowercase",
+          //   "trim",
+          //   "icu_folding",
+          //   "unique_only_same_position",
+          //   "notnull"
+          // ]
         },
         "peliasHousenumber": {
           "type": "custom",
