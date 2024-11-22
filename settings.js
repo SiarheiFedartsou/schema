@@ -33,7 +33,7 @@ function generate(){
           "filter": [
             "lowercase",
             "trim",
-            // "synonyms/custom_admin/multiword",
+            "synonyms/custom_admin/multiword",
             "admin_synonyms_multiplexer",
             "icu_folding",
             "word_delimiter",
