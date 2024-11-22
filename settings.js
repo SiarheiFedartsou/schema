@@ -194,8 +194,8 @@ function generate(){
             "synonyms/custom_admin",
             "synonyms/personal_titles",
             "synonyms/place_names",
-            // "synonyms/streets",
-            // "synonyms/directionals",
+            "synonyms/streets",
+            "synonyms/directionals",
             // "synonyms/punctuation",
             // "synonyms/british_american_english"
           ]
