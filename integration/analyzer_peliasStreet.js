@@ -21,7 +21,7 @@ module.exports.tests.analyze = function(test, common){
     assertAnalysis( 'keyword_compass', 'foo SouthWest', ['0:foo', '1:southwest', '1:sw'] );
     assertAnalysis( 'remove_ordinals', '1st 2nd 3rd 4th 5th', ['1','2','3','4','5'] );
     assertAnalysis( 'remove_ordinals', 'Ast th 101st', ['ast','th','101'] );
-
+    assertAnalysis( 'thai_address', 'ซอยเพชรบุรี๑', ['0:ซอย', '1:เพชรบุรี๑'] );
     suite.run( t.end );
   });
 };
