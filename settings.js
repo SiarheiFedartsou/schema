@@ -134,7 +134,7 @@ function generate(){
           "char_filter" : ["numeric"]
         },
         "peliasStreet": {
-          "type": "icu_analyzer"
+          "type": "thai_analyzer"
           // "type": "custom",
           // "tokenizer":"peliasTokenizer",
           // "char_filter" : ["punctuation", "nfkc_normalizer"],

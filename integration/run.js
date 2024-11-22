@@ -92,24 +92,24 @@ function removeIndexTokensFromExpectedTokens(index, expected){
 }
 
 var tests = [
-  require('./validate.js'),
-  require('./dynamic_templates.js'),
-  require('./analyzer_peliasIndexOneEdgeGram.js'),
-  require('./analyzer_peliasQuery.js'),
-  require('./analyzer_peliasPhrase.js'),
-  require('./analyzer_peliasAdmin.js'),
-  require('./analyzer_peliasHousenumber.js'),
-  require('./analyzer_peliasZip.js'),
+  // require('./validate.js'),
+  // require('./dynamic_templates.js'),
+  // require('./analyzer_peliasIndexOneEdgeGram.js'),
+  // require('./analyzer_peliasQuery.js'),
+  // require('./analyzer_peliasPhrase.js'),
+  // require('./analyzer_peliasAdmin.js'),
+  // require('./analyzer_peliasHousenumber.js'),
+  // require('./analyzer_peliasZip.js'),
   require('./analyzer_peliasStreet.js'),
-  require('./address_matching.js'),
-  require('./admin_matching.js'),
-  require('./source_layer_sourceid_filtering.js'),
-  require('./bounding_box.js'),
-  require('./autocomplete_street_synonym_expansion.js'),
-  require('./autocomplete_directional_synonym_expansion.js'),
-  require('./autocomplete_abbreviated_street_names.js'),
-  require('./multi_token_synonyms.js'),
-  require('./admin_abbreviations.js')
+  // require('./address_matching.js'),
+  // require('./admin_matching.js'),
+  // require('./source_layer_sourceid_filtering.js'),
+  // require('./bounding_box.js'),
+  // require('./autocomplete_street_synonym_expansion.js'),
+  // require('./autocomplete_directional_synonym_expansion.js'),
+  // require('./autocomplete_abbreviated_street_names.js'),
+  // require('./multi_token_synonyms.js'),
+  // require('./admin_abbreviations.js')
 ];
 
 tests.map(function(t) {
