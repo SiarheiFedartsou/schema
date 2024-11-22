@@ -33,8 +33,8 @@ function generate(){
           "filter": [
             "lowercase",
             "trim",
-            "synonyms/custom_admin/multiword",
-            "admin_synonyms_multiplexer",
+            // "synonyms/custom_admin/multiword",
+            // "admin_synonyms_multiplexer",
             "icu_folding",
             "word_delimiter",
             "unique_only_same_position",
@@ -49,10 +49,10 @@ function generate(){
           "filter": [
             "lowercase",
             "trim",
-            "synonyms/custom_name/multiword",
-            "synonyms/custom_street/multiword",
-            "synonyms/custom_admin/multiword",
-            "name_synonyms_multiplexer",
+            // "synonyms/custom_name/multiword",
+            // "synonyms/custom_street/multiword",
+            // "synonyms/custom_admin/multiword",
+            // "name_synonyms_multiplexer",
             "icu_folding",
             "remove_ordinals",
             "removeAllZeroNumericPrefix",
@@ -84,10 +84,10 @@ function generate(){
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
-            "synonyms/custom_name/multiword",
-            "synonyms/custom_street/multiword",
-            "synonyms/custom_admin/multiword",
-            "name_synonyms_multiplexer",
+            // "synonyms/custom_name/multiword",
+            // "synonyms/custom_street/multiword",
+            // "synonyms/custom_admin/multiword",
+            // "name_synonyms_multiplexer",
             "icu_folding",
             "remove_ordinals",
             "removeAllZeroNumericPrefix",
@@ -133,8 +133,8 @@ function generate(){
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
-            "synonyms/custom_street/multiword",
-            "street_synonyms_multiplexer",
+            // "synonyms/custom_street/multiword",
+            // "street_synonyms_multiplexer",
             "icu_folding",
             "remove_ordinals",
             "trim",
@@ -151,7 +151,7 @@ function generate(){
             "lowercase",
             "trim",
             "icu_folding",
-            "country_abbreviation_synonyms_multiplexer",
+            // "country_abbreviation_synonyms_multiplexer",
             "unique_only_same_position",
             "notnull",
             "flatten_graph"
@@ -165,7 +165,7 @@ function generate(){
             "lowercase",
             "trim",
             "icu_folding",
-            "country_abbreviation_synonyms_multiplexer",
+            // "country_abbreviation_synonyms_multiplexer",
             "peliasOneEdgeGramFilter",
             "unique_only_same_position",
             "notnull",
@@ -174,48 +174,48 @@ function generate(){
         },
       },
       "filter" : {
-        "street_synonyms_multiplexer": {
-          "type": "multiplexer",
-          "preserve_original": false,
-          "filters": [
-            "synonyms/custom_street",
-            "synonyms/personal_titles",
-            "synonyms/streets",
-            "synonyms/directionals",
-            "synonyms/british_american_english",
-          ]
-        },
-        "name_synonyms_multiplexer": {
-          "type": "multiplexer",
-          "preserve_original": false,
-          "filters": [
-            "synonyms/custom_name",
-            "synonyms/custom_street",
-            "synonyms/custom_admin",
-            "synonyms/personal_titles",
-            "synonyms/place_names",
-            "synonyms/streets",
-            "synonyms/directionals",
-            "synonyms/punctuation",
-            "synonyms/british_american_english"
-          ]
-        },
-        "admin_synonyms_multiplexer": {
-          "type": "multiplexer",
-          "preserve_original": false,
-          "filters": [
-            "synonyms/custom_admin",
-            "synonyms/personal_titles",
-            "synonyms/place_names"
-          ]
-        },
-        "country_abbreviation_synonyms_multiplexer": {
-          "type": "multiplexer",
-          "preserve_original": false,
-          "filters": [
-            "synonyms/country_codes"
-          ]
-        },
+        // "street_synonyms_multiplexer": {
+        //   "type": "multiplexer",
+        //   "preserve_original": false,
+        //   "filters": [
+        //     "synonyms/custom_street",
+        //     "synonyms/personal_titles",
+        //     "synonyms/streets",
+        //     "synonyms/directionals",
+        //     "synonyms/british_american_english",
+        //   ]
+        // },
+        // "name_synonyms_multiplexer": {
+        //   "type": "multiplexer",
+        //   "preserve_original": false,
+        //   "filters": [
+        //     "synonyms/custom_name",
+        //     "synonyms/custom_street",
+        //     "synonyms/custom_admin",
+        //     "synonyms/personal_titles",
+        //     "synonyms/place_names",
+        //     "synonyms/streets",
+        //     "synonyms/directionals",
+        //     "synonyms/punctuation",
+        //     "synonyms/british_american_english"
+        //   ]
+        // },
+        // "admin_synonyms_multiplexer": {
+        //   "type": "multiplexer",
+        //   "preserve_original": false,
+        //   "filters": [
+        //     "synonyms/custom_admin",
+        //     "synonyms/personal_titles",
+        //     "synonyms/place_names"
+        //   ]
+        // },
+        // "country_abbreviation_synonyms_multiplexer": {
+        //   "type": "multiplexer",
+        //   "preserve_original": false,
+        //   "filters": [
+        //     "synonyms/country_codes"
+        //   ]
+        // },
         "notnull" :{
           "type" : "length",
           "min" : 1
