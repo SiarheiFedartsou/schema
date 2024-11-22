@@ -196,8 +196,8 @@ function generate(){
             "synonyms/place_names",
             "synonyms/streets",
             "synonyms/directionals",
-            // "synonyms/punctuation",
-            // "synonyms/british_american_english"
+            "synonyms/punctuation",
+            //"synonyms/british_american_english"
           ]
         },
         "admin_synonyms_multiplexer": {
