@@ -34,7 +34,7 @@ function generate(){
             "lowercase",
             "trim",
             // "synonyms/custom_admin/multiword",
-            // "admin_synonyms_multiplexer",
+            "admin_synonyms_multiplexer",
             "icu_folding",
             "word_delimiter",
             "unique_only_same_position",
@@ -200,15 +200,15 @@ function generate(){
         //     "synonyms/british_american_english"
         //   ]
         // },
-        // "admin_synonyms_multiplexer": {
-        //   "type": "multiplexer",
-        //   "preserve_original": false,
-        //   "filters": [
-        //     "synonyms/custom_admin",
-        //     "synonyms/personal_titles",
-        //     "synonyms/place_names"
-        //   ]
-        // },
+        "admin_synonyms_multiplexer": {
+          "type": "multiplexer",
+          "preserve_original": false,
+          "filters": [
+            "synonyms/custom_admin",
+            "synonyms/personal_titles",
+            "synonyms/place_names"
+          ]
+        },
         "country_abbreviation_synonyms_multiplexer": {
           "type": "multiplexer",
           "preserve_original": false,
