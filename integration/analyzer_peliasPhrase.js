@@ -22,10 +22,10 @@ module.exports.tests.analyze = function(test, common){
     assertAnalysis( 'asciifolding', 'ɰ', ['m']);
     assertAnalysis( 'trim', ' f ', ['f'] );
     assertAnalysis( 'stop_words (disabled)', 'a st b ave c', ['0:a', '1:st', '1:street', '2:b', '3:ave', '3:avenue', '3:av', '4:c'] );
-    // assertAnalysis( 'ampersand', 'a and b', ['0:a', '1:and', '1:&', '2:b']);
-    // assertAnalysis( 'ampersand', 'a & b', ['0:a', '1:&', '1:and', '1:und', '2:b']);
-    // assertAnalysis( 'ampersand', 'a and & and b', ['0:a', '1:and', '1:&', '2:&', '2:and', '2:und', '3:and', '3:&', '4:b']);
-    // assertAnalysis( 'ampersand', 'land', ['land'] ); // should not replace inside tokens
+    assertAnalysis( 'ampersand', 'a and b', ['0:a', '1:and', '1:&', '2:b']);
+    assertAnalysis( 'ampersand', 'a & b', ['0:a', '1:&', '1:and', '1:und', '2:b']);
+    assertAnalysis( 'ampersand', 'a and & and b', ['0:a', '1:and', '1:&', '2:&', '2:and', '2:und', '3:and', '3:&', '4:b']);
+    assertAnalysis( 'ampersand', 'land', ['land'] ); // should not replace inside tokens
 
     // @todo: handle multiple consecutive 'and'
     // assertAnalysis( 'ampersand', 'a and & and b', ['a &','& b'] );
@@ -45,7 +45,7 @@ module.exports.tests.analyze = function(test, common){
     assertAnalysis( 'stem direction synonyms', '20 bear road northeast', ['0:20', '1:bear', '2:road', '2:rd', '3:northeast', '3:ne'] );
 
     // remove punctuation (handled by the char_filter)
-    // assertAnalysis( 'punctuation', punctuation.all.join(''), ['0:&', '0:and', '0:und'] );
+    assertAnalysis( 'punctuation', punctuation.all.join(''), ['0:&', '0:and', '0:und'] );
     assertAnalysis( 'punctuation', 'Hawai‘i', ['hawaii'] );
     assertAnalysis( 'punctuation - « in between', '«res»pub«lika»', ['respublika'] );
  
