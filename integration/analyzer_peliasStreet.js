@@ -9,8 +9,21 @@ module.exports.tests.analyze = function(test, common){
 
     var suite = new Suite( common.clientOpts, common.create );
     var assertAnalysis = common.analyze.bind( null, suite, t, 'peliasStreet' );
-    suite.action( function( done ){ setTimeout( done, 500 ); }); 
+    suite.action( function( done ){ setTimeout( done, 500 ); }); // wait for es to bring some shards up
 
+    assertAnalysis( 'lowercase', 'F', ['f']);
+    assertAnalysis( 'asciifolding', 'Max-Beer-Straße', ['0:max', '1:beer', '2:strasse', '2:str']);
+    assertAnalysis( 'trim', ' f ', ['f'] );
+    assertAnalysis( 'keyword_street_suffix', 'foo Street', ['0:foo', '1:street', '1:st'] );
+    assertAnalysis( 'keyword_street_suffix', 'foo Road', ['0:foo', '1:road', '1:rd'] );
+    assertAnalysis( 'keyword_street_suffix', 'foo Crescent', ['0:foo', '1:crescent', '1:cres'] );
+    assertAnalysis( 'keyword_compass', 'north foo', ['0:north', '0:n', '1:foo'] );
+    assertAnalysis( 'keyword_compass', 'SouthWest foo', ['0:southwest', '0:sw', '1:foo'] );
+    assertAnalysis( 'keyword_compass', 'foo SouthWest', ['0:foo', '1:southwest', '1:sw'] );
+    assertAnalysis( 'remove_ordinals', '1st 2nd 3rd 4th 5th', ['1','2','3','4','5'] );
+    assertAnalysis( 'remove_ordinals', 'Ast th 101st', ['ast','th','101'] );
+
+    // complicated tokenization for some Asian languages
     assertAnalysis('thai_address1', 'ซอยเพชรบุรี๑', ['ซอย', 'เพชรบุรี1'] );
     assertAnalysis('thai_address2', 'บ้านเลขที่๑๒๓ถนนสุขุมวิทแขวงคลองตันเหนือเขตวัฒนา กรุงเทพมหานคร๑๐๑๑๐', ["บาน", "เลข", "ที123ถนน", "สุขุมวิท", "แขวง", "คลองตัน", "เหนือ", "เขต", "วัฒนา", "กรุงเทพมหานคร10110"]);
     assertAnalysis('chinese_address', '北京市朝阳区东三环中路1号国际大厦A座1001室', 

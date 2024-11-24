@@ -67,9 +67,9 @@ module.exports.tests.functional = function(test, common){
     var assertAnalysis = common.analyze.bind( null, suite, t, 'peliasPhrase' );
     suite.action( function( done ){ setTimeout( done, 500 ); }); // wait for es to bring some shards up
 
-    // assertAnalysis( 'country', 'Trinidad and Tobago', [
-    //   '0:trinidad', '1:and', '1:&', '2:tobago'
-    // ]);
+    assertAnalysis( 'country', 'Trinidad and Tobago', [
+      '0:trinidad', '1:and', '1:&', '2:tobago'
+    ]);
 
     assertAnalysis( 'place', 'Toys "R" Us!', [
       'toys', 'r', 'us'
