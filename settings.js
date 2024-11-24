@@ -45,8 +45,9 @@ function generate(){
         "peliasIndexOneEdgeGram" : {
           "type": "custom",
           "tokenizer" : "peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
+          "char_filter" : ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "synonyms/custom_name/multiword",
@@ -79,8 +80,9 @@ function generate(){
         "peliasPhrase": {
           "type": "custom",
           "tokenizer":"peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
+          "char_filter" : ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
@@ -174,6 +176,11 @@ function generate(){
         },
       },
       "filter" : {
+        "ampersand_replacer": {
+          "type": "pattern_replace",
+          "pattern": "AmpersandPlaceholder",
+          "replacement": "&"
+        },
         "street_synonyms_multiplexer": {
           "type": "multiplexer",
           "preserve_original": false,
@@ -196,7 +203,7 @@ function generate(){
             "synonyms/place_names",
             "synonyms/streets",
             "synonyms/directionals",
-            //"synonyms/punctuation",
+            "synonyms/punctuation",
             "synonyms/british_american_english"
           ]
         },
@@ -247,6 +254,11 @@ function generate(){
         // more generated below
       },
       "char_filter": {
+        "ampersand_mapper": {
+          "type": "pattern_replace",
+          "pattern": "&",
+          "replacement": "AmpersandPlaceholder"
+        },
         "punctuation" : {
           "type" : "mapping",
           "mappings" : punctuation.blacklist.map(function(c){
