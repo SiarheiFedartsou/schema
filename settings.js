@@ -183,7 +183,7 @@ function generate(){
       "filter" : {
         "ampersand_replacer": {
           "type": "pattern_replace",
-          "pattern": "AmpersandPlaceholder",
+          "pattern": "AMPERSANDPLACEHOLDER",
           "replacement": "&"
         },
         "street_synonyms_multiplexer": {
@@ -262,7 +262,7 @@ function generate(){
         "ampersand_mapper": {
           "type": "pattern_replace",
           "pattern": "&",
-          "replacement": "AmpersandPlaceholder"
+          "replacement": "AMPERSANDPLACEHOLDER"
         },
         "punctuation" : {
           "type" : "mapping",
