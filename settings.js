@@ -29,8 +29,9 @@ function generate(){
         "peliasAdmin": {
           "type": "custom",
           "tokenizer": "peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
+          "char_filter" : ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "synonyms/custom_admin/multiword",
@@ -66,8 +67,9 @@ function generate(){
         "peliasQuery": {
           "type": "custom",
           "tokenizer": "peliasTokenizer",
-          "char_filter": ["punctuation", "nfkc_normalizer"],
+          "char_filter": ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
@@ -130,8 +132,9 @@ function generate(){
         "peliasStreet": {
           "type": "custom",
           "tokenizer":"peliasTokenizer",
-          "char_filter" : ["punctuation", "nfkc_normalizer"],
+          "char_filter" : ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
@@ -148,8 +151,9 @@ function generate(){
         "peliasIndexCountryAbbreviation": {
           "type": "custom",
           "tokenizer": "peliasTokenizer",
-          "char_filter": ["punctuation", "nfkc_normalizer"],
+          "char_filter": ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
@@ -162,8 +166,9 @@ function generate(){
         "peliasIndexCountryAbbreviationOneEdgeGram": {
           "type": "custom",
           "tokenizer": "peliasTokenizer",
-          "char_filter": ["punctuation", "nfkc_normalizer"],
+          "char_filter": ["ampersand_mapper", "punctuation", "nfkc_normalizer"],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
