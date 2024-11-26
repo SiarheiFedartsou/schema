@@ -23,10 +23,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "synonyms/custom_admin/multiword",
@@ -42,10 +44,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "synonyms/custom_name/multiword",
@@ -65,10 +69,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
@@ -82,10 +88,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
@@ -142,10 +150,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "remove_duplicate_spaces",
@@ -163,10 +173,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
@@ -180,10 +192,12 @@
           "type": "custom",
           "tokenizer": "peliasTokenizer",
           "char_filter": [
+            "ampersand_mapper",
             "punctuation",
             "nfkc_normalizer"
           ],
           "filter": [
+            "ampersand_replacer",
             "lowercase",
             "trim",
             "icu_folding",
@@ -196,6 +210,11 @@
         }
       },
       "filter": {
+        "ampersand_replacer": {
+          "type": "pattern_replace",
+          "pattern": "AMPERSANDPLACEHOLDER",
+          "replacement": "&"
+        },
         "street_synonyms_multiplexer": {
           "type": "multiplexer",
           "preserve_original": false,
@@ -2270,6 +2289,11 @@
         }
       },
       "char_filter": {
+        "ampersand_mapper": {
+          "type": "pattern_replace",
+          "pattern": "&",
+          "replacement": " AMPERSANDPLACEHOLDER "
+        },
         "punctuation": {
           "type": "mapping",
           "mappings": [
