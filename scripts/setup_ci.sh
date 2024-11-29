@@ -24,7 +24,7 @@ wget -O - "https://artifacts.elastic.co/downloads/elasticsearch/${FILENAME}" \
 /tmp/elasticsearch/bin/elasticsearch-plugin install analysis-icu
 
 # start elasticsearch server
-/tmp/elasticsearch/bin/elasticsearch --daemonize -Epath.data=/tmp/elasticsearch -Ediscovery.type=single-node
+/tmp/elasticsearch/bin/elasticsearch --daemonize -Epath.data=/tmp/elasticsearch -Ediscovery.type=single-node -Expack.security.enabled=false
 
 # wait for server to boot up
 # logs show that on travis-ci it can take ~17s to boot an ES6 server
